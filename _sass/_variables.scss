@@ -19,6 +19,7 @@ $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
 $font1: "PT Serif", Georgia, "Times New Roman", serif;
+$font2: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
 // Mobile breakpoints
 @mixin mobile {
   @media screen and (max-width: 640px) {

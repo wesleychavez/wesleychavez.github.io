@@ -71,9 +71,7 @@ Multi-layer perceptrons and deep neural networks are two examples of machine lea
 
 This tells us that if we have a large number of features in a dataset, we can save a lot of time by choosing a linear classifier, and won't lose much accuracy!  Go run and tell that, homeboy.  
 
-
-
-
 [1] F. Rosenblatt. The perceptron: A probabilistic model for information storage and organization in the brain. Psychological Review, 65(6):386, 1958.
+
 [2] G.-X. Yuan, C.-H. Ho, and C.-J. Lin. Recent advances of large-scale linear classification. Proceedings of the IEEE, 100(9):2584–2603, 2012.
 

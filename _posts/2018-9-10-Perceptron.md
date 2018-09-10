@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Perceptron: The First Neuron
+title: "Perceptron: The First Neuron"
 ---
 
 So we have a little background on what to do with our boxes, but how do we train them to make good decisions?  Hopefully this post will give you more of an intuitive idea of how to build a simple box.  So hold on to your butts and feel free to comment on anything that doesn't make complete, crystal-clear sense.  

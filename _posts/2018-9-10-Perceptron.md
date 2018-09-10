@@ -21,7 +21,7 @@ Note that the two on the left are taken directly from the picture of the dingo. 
 
 ![Perceptron Equation](/images/perceptron.png)
 
-where w is the weight vector, and b is the bias. w and b are the knobs to tweak, x is the input vector (presence of the smaller pictures), and y is the output binary value.  If y is 1, the current picture is a dingo.  If y is 0, the perceptron is confident that the current picture is a Rhodesian Ridgeback.  
+where w is the weight vector, and b is the bias. w and b are the knobs to tweak, x is the input vector (presence of the smaller pictures), and y is the output binary value.  If y is 1, the current picture is a dingo.  If y is 0, the perceptron thinks that the current picture is a Rhodesian Ridgeback.  
 
 Let's pretend that we've already trained the perceptron (we finished tweaking the knobs after showing it thousands of examples of dingos and Ridgebacks) and it's super accurate at guessing now.  Let's try to classify the first dingo picture:
 

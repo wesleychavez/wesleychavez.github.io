@@ -27,15 +27,15 @@ Let's pretend that we've already trained the perceptron (we finished tweaking th
 
 ![Perceptron Computation](/images/computation.png)
 
-Since the first two features are present in the picture, the input for those features are one.  (In a real world scenario, we will have pictures that don't have the same exact pointy ears as the first feature.  Maybe we will find a similar pointy ear in a picture, and x will be 0.9.  It all depends on the feature extractor you use.)  Solving the perceptron equation, wx+b = 1(0.8) + 1(0.7) + 0(-0.4) + 0(-0.4) + 0(0) = 1.5, which is greater than zero, so y = 1, and this picture is correctly classified as a dingo.
+Since the first two features are present in the picture, the input for those features is 1.  (In a real world scenario, we will have pictures that don't have the same exact pointy ears as the first feature.  Maybe we will find a similar pointy ear in a picture, and x will be 0.9.  It all depends on the feature extractor you use.)  Solving the perceptron equation, wx+b = 1(0.8) + 1(0.7) + 0(-0.4) + 0(-0.4) + 0(0) = 1.5, which is greater than zero, so y = 1, and this picture is correctly classified as a dingo.
 
 But how did we tweak the knobs correctly to decide these final weights?  Great question!  All machine learning models have a cost function, sometimes referred to as a loss, energy, or optimization function.  There are little differences in these terms, but for now I'll lump them together.  The cost function is a metric for how well your model classifies.  The perceptron cost function is:
 
 ![Perceptron Cost](/images/perceptroncost.png)
 
-"desired" is the ground truth annotation (remember the sticky notes) for each labeled picture.  If "desired" is the same as y (the perceptron's guess for a particular picture), this is good, and the loss for that particular training example is 0.  If the perceptron guesses wrong, the loss will be 1.  All the losses over the whole dataset added together is the perceptron's cost, which we want to minimize.
+"desired" is the ground truth annotation (0 or 1) (remember the sticky notes) for each labeled picture.  If "desired" is the same as y (the perceptron's guess for a particular picture), this is good, and the loss for that particular training example is 0.  If the perceptron guesses wrong, the loss will be 0.5.  All the losses over the whole dataset added together is the perceptron's cost, which we want to minimize.
 
-So how do we minimize this cost?  By tweaking the knobs (w and b vectors).  After each training vector (x) is presented, the perceptron makes a guess (y), and this is compared to the ground truth annotation (desired).  The weights (w) are then updated:
+So how do we minimize this cost?  By tweaking the knobs (w and b vectors).  In order to know which way to turn the knobs (increase or decrease a weight), we find the derivative of the cost with respect to w: dJ/dw = (desired - y), and increase/decrease the weights in order to minimize J(w).  So after each training vector (x) is presented, the perceptron makes a guess (y), and this is compared to the ground truth annotation (desired).  The weights (w) are then updated:
 
 ![Perceptron weight update rule](/images/perceptronweightupdate.png)
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TLDR my blog
+title: Perceptron: The First Neuron
 ---
 
 So we have a little background on what to do with our boxes, but how do we train them to make good decisions?  Hopefully this post will give you more of an intuitive idea of how to build a simple box.  So hold on to your butts and feel free to comment on anything that doesn't make complete, crystal-clear sense.  
@@ -57,7 +57,7 @@ If I told you to draw a line separating the two classes, it would be pretty easy
 
 ![Simple task line](/images/linear1.png)
 
-That's what linear classifiers such as the perceptron are doing, drawing a line.  In 3 dimensions (3 features), the perceptron will draw a plane, and in more than 3 dimensions, we call it a hyperplane.  After each presentation of an input vector, the perceptron moves the line until it separates the data well.  But let's take a look at a more difficult task:
+That's what linear classifiers such as the perceptron are doing, drawing a line.  In 3 dimensions (3 features), the perceptron will create a plane as its decision boundary, and in more than 3 dimensions, we call it a hyperplane.  After each presentation of an input vector, the perceptron moves the line until it separates the data well.  But let's take a look at a more difficult task:
 
 ![Harder task](/images/linear2.png)
 

@@ -1,4 +1,11 @@
-The first box I'd like to tell you about is the perceptron.  The perceptron [1], or single-layer perceptron, is one of the most simple forms of artificial neural networks. It is an algorithm for learning a linear, binary classifier to map an input vector x to an output binary value y (in the case of distinguishing between two classes).  For example, say we are trying to differentiate between images of dingos:
+---
+layout: post
+title: TLDR my blog
+---
+
+So we have a little background on what to do with our boxes, but how do we train them to make good decisions?  Hopefully this post will give you more of an intuitive idea of how to build a simple box.  So hold on to your butts and feel free to comment on anything that doesn't make complete, crystal-clear sense.  
+
+This first box I'd like to tell you about is the perceptron.  The perceptron [1], or single-layer perceptron, is one of the most simple forms of artificial neural networks. It is an algorithm for learning a linear, binary classifier to map an input vector x to an output binary value y (in the case of distinguishing between two classes).  For example, say we are trying to differentiate between images of dingos:
 
 ![Dingo](/images/dingo.png)
 
@@ -26,7 +33,7 @@ But how did we tweak the knobs correctly to decide these final weights?  Great q
 
 ![Perceptron Cost](/images/perceptroncost.png)
 
-"desired" is the ground truth annotation (remember the sticky notes) for each labeled picture.  If "desired" is the same as y (the perceptron's guess for a particular picture), this is good, and the loss for that particular training example is 0.  If the perceptron guesses wrong, the loss will be one.  All the losses over the whole dataset added together is the perceptron's cost, which we want to minimize.
+"desired" is the ground truth annotation (remember the sticky notes) for each labeled picture.  If "desired" is the same as y (the perceptron's guess for a particular picture), this is good, and the loss for that particular training example is 0.  If the perceptron guesses wrong, the loss will be 1.  All the losses over the whole dataset added together is the perceptron's cost, which we want to minimize.
 
 So how do we minimize this cost?  By tweaking the knobs (w and b vectors).  After each training vector (x) is presented, the perceptron makes a guess (y), and this is compared to the ground truth annotation (desired).  The weights (w) are then updated:
 
@@ -42,4 +49,31 @@ This picks the class (j) that has the highest value of wx+b.  Note that y is no 
 
 This form of multiclass classification is known as “one vs. all”, where there exists one weight vector for every class, and each perceptron attempts to separate data from the corresponding class and data from all other classes.  In the dingo vs. Rhodesian Ridgeback vs. poodle example, there will essentially be three perceptrons, each differentiating between: dingo/not dingo, Ridgeback/not Ridgeback, and poodle/not poodle.  This is in opposition to a strategy called "one vs. one", where, in our example, there would be still be 3 perceptrons, but they differentiate between: dingo vs. Ridgeback, Ridgeback vs. poodle, and poodle vs. dingo. However, as the number of classes (N) increases, the number of "one vs. one" perceptrons increases, as there are N(N-1)/2 classifiers.
 
+Again, the perceptron algorithm is fairly simple.  Since it only makes decisions based on a linear combination of inputs (wx+b) and not a non-linear one, e.g. wx^2+b, it has limited learning potential, and would perform poorly in most machine learning tasks.  Why is that?  Let's pretend we only have two features, x1 and x2 (don't worry about what the features are for this example), and that our task is to distinguish between two classes (X's and O's).  We're given this dataset:
+
+![Simple task](/images/linear0.png)
+
+If I told you to draw a line separating the two classes, it would be pretty easy, no?
+
+![Simple task line](/images/linear1.png)
+
+That's what linear classifiers such as the perceptron are essentially doing, drawing a line.  After each presentation of an input vector, the perceptron moves a line until it separates the data well.  But let's take a look at a more difficult task:
+
+![Harder task](/images/linear2.png)
+
+We can no longer place a line anywhere to separate the dataset perfectly.  What we have here is a linearly inseperable task.  This is when we need to look at nonlinear algorithms to model our data:
+
+![Harder task line](/images/linear3.png)
+
+Multi-layer perceptrons and deep neural networks are two examples of machine learning models that introduce nonlinearities to solve these types of problems.  However, as we will see in later posts, the time it takes to train some of these complex networks can be very lengthy.  In 2012, Yuan et al. [2] showed that for many tasks, the accuracy of a linear classifier will be closer to that of a nonlinear classifier when the number of features is very large:
+
+![Yuan et al.](/images/yuan.png)
+
+This tells us that if we have a large number of features in a dataset, we can save a lot of time by choosing a linear classifier, and won't lose much accuracy!  Go run and tell that, homeboy.  
+
+
+
+
 [1] F. Rosenblatt. The perceptron: A probabilistic model for information storage and organization in the brain. Psychological Review, 65(6):386, 1958.
+[2] G.-X. Yuan, C.-H. Ho, and C.-J. Lin. Recent advances of large-scale linear classification. Proceedings of the IEEE, 100(9):2584–2603, 2012.
+

@@ -18,7 +18,7 @@ These two equations can be combined into one.
 ![SVM decision boundary combined](/images/svmdecisioncombined.png)
 
 Alright now for some voodoo.  The distance between a point ![Point](/images/point.png) and a line ![Line](/images/line.png) is ![Distance](/images/distance.png), therefore the distance between a support vector and the hyperplane happens to be ![Distance](/images/dist_hyperplane.png), where ![Euclidean length of w](/images/euclid_w.png) is the Euclidean length of the weights vector.  In order to maximize this distance between support vectors from both classes and the hyperplane, we therefore need to minimize ![Euclidean length of w](/images/euclid_w.png), with the condition that there are no input vectors within the margins. However, when the data is not linearly separable, as in many image classification tasks, we cannot satisfy this condition: 
-![Inseparable](/images/svm_incep.png)
+![Inseparable](/images/svm_inseparable.png)
 
 Thus we introduce the hinge loss function: 
 

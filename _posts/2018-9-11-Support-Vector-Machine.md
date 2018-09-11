@@ -24,7 +24,7 @@ Thus we introduce the hinge loss function:
 
 ![Hinge loss](/images/hinge.png)
 
-This function is zero if x is on the correct side of the margin, and is proportional to the distance from x to the margin otherwise.  This next equation gets hairy.  SVMs solve the unconstrained optimization problem: 
+This function is zero if x is on the correct side of the margin, and is proportional to the distance from x to the margin otherwise.  Try plugging in values for (wx+b) that are on the wrong side of the hyperplane (desired = -1, wx+b = 50).  This next equation gets hairy.  SVMs solve the unconstrained optimization problem: 
 
 ![SVM optimization](/images/opt.png)
 

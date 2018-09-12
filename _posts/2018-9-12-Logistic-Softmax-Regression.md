@@ -49,27 +49,19 @@ Of course, there is more to training a softmax classifier than what I present he
 
 I need to tell you about one confusing thing about softmax classifiers: are they linear?  Technically, no, because the softmax function non-linearly transforms the inputs x.  However, let’s say that 
 
-j        wx+b
-
-------------------
-
-Dog      3
-
-Cat      1
-
-Llama        2.7
+|j     |   wx+b |
+|------|--------|
+|Dog   |   3    |
+|Cat   |   1    |
+|Llama |   2.7  |
 
 Computing the softmax function, we get 
 
-j 	     y
-
-------------------
-
-Dog	     0.53
-
-Cat	     0.07
-
-Llama    0.39
+|j 	  |   y    | 
+|-----|--------|
+|Dog  |   0.53 |
+|Cat  |   0.07 |
+|Llama|   0.39 |
 
 The highest-valued category (dog) before computing the softmax function is *always* going to be the highest-valued category after computation.  This means that after training, we can remove the softmax function to test new examples, and we don’t have to compute the softmax function in order to decide upon the most likely category, we still pick the category with the maximum wx+b.  Wait we only need to compute wx+b? That’s a **linear** equation!!!  So does this mean that only during testing and without the softmax function can the classifier be considered linear?  And is a softmax classifier also drawing linear decision boundaries?  My thoughts are yes to both of these, but since we’re going on a data adventure together, maybe someone can help explain this conundrum.  
 
